@@ -35,4 +35,14 @@ public class OutSideUI : MonoBehaviour {
 
         prevState = state;
 	}
+
+    public void OnAmmoDown()
+    {
+        Debug.Log("OnAmmoDown");
+    }
+
+    public void OnGunEnter()
+    {
+        Debug.Log("OnGunEnter");
+    }
 }
