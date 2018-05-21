@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class SafeHouseUI : MonoBehaviour {
 
+    private static SafeHouseUI instance;
+
+    void Awake(){
+        instance = this;
+    }
+    public static SafeHouseUI Instance(){
+        return instance;
+    }
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,18 +24,34 @@ public class SafeHouseUI : MonoBehaviour {
 	}
 
     public void OnCraft() {
-        Debug.Log("OnCraft");
+        GlobalUI.Instance().Alert("OnCraft to be implemented!");
     }
 
     public void OnUpgrade() {
-        Debug.Log("OnUpgrade");
+        GlobalUI.Instance().Alert("OnUpgrade to be implemented!");
     }
 
     public void OnBuyAmmo() {
-        Debug.Log("OnBuyAmmo");
+        GlobalUI.Instance().Alert("BuyAmmo 10 coin per ammo!");
+
+        int _coin = PlayerState.Instance().coin;
+        if(_coin >= 10)
+        {
+            GlobalUI.Instance().Alert("ammo +1 !");
+            PlayerState.Instance().coin -= 10;
+            PlayerState.Instance().ammo += 1;
+        }
+        else
+        {
+            GlobalUI.Instance().Alert("Coin not enough!");
+        }
+
+        GameManager.Instance().SyncPlayerState();
+
     }
 
     public void OnGoOut() {
-        Debug.Log("OnGoOut");
+        GlobalUI.Instance().Alert("Go Out!");
+        GameManager.Instance().StartFight();
     }
 }

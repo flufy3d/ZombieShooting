@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/persistent.unity
+    guid: 52faab44f22f592488832911ce81a5b1
+  - enabled: 1
+    path: Assets/Scenes/SafeHouse.unity
+    guid: 9c45995d8e97dfc46b0e65f04c9bbe4f
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: 103c5776ce9d7514080b42e8c553fd89

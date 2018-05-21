@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class OutSideUI : MonoBehaviour {
 
+    private static OutSideUI instance;
+
+    void Awake(){
+        instance = this;
+    }
+    public static OutSideUI Instance(){
+        return instance;
+    }
+    
     public Animator panelControl;
     private string prevState;
     private string state;
